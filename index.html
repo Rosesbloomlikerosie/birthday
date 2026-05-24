@@ -9,7 +9,6 @@
 body{
     margin:0;
     background:linear-gradient(135deg,#ffd6e7,#d9e7ff);
-    /* Fixed: Changed to min-height so tall content isn't cut off at the top */
     min-height:100vh; 
     padding: 40px 20px;
     box-sizing: border-box;
@@ -20,30 +19,26 @@ body{
     font-family:Courier New, monospace;
 }
 
-/* --- NEW: Background Cats Setup --- */
 .bg-cat {
     position: fixed;
     width: 150px;
-    opacity: 0; /* Hidden at first */
+    opacity: 0; 
     border-radius: 12px;
-    z-index: 0; /* Keeps them behind the terminal */
+    z-index: 0; 
 }
 
-/* Alias Cat appears at 10s */
 .cat-alias {
     top: 15%;
     left: 5%;
     animation: popIn 1s 10s forwards, floatRotate 6s 10s infinite ease-in-out;
 }
 
-/* Dolma Cat appears at 11s */
 .cat-dolma {
     bottom: 15%;
     right: 5%;
     animation: popIn 1s 11s forwards, floatRotate 6s 11s infinite ease-in-out;
 }
 
-/* Animations for the background cats */
 @keyframes popIn {
     to { opacity: 0.9; }
 }
@@ -51,9 +46,7 @@ body{
     0%, 100% { transform: translateY(0px) rotate(-5deg); }
     50% { transform: translateY(-15px) rotate(5deg); }
 }
-/* --------------------------------- */
 
-/* MOBILE FIX */
 @media (max-width: 768px){
     body{
         align-items:flex-start;
@@ -70,7 +63,7 @@ body{
         font-size:14px;
     }
     .bg-cat {
-        width: 100px; /* Smaller cats on mobile */
+        width: 100px;
     }
 }
 
@@ -157,8 +150,8 @@ button:active{
 
 <body>
 
-<img src="images/confused-cat.png" class="bg-cat cat-alias" alt="Alias Cat">
-<img src="images/ears-covered-cat.png" class="bg-cat cat-dolma" alt="Dolma Cat">
+<img src="confused-cat.png" class="bg-cat cat-alias" alt="Alias Cat">
+<img src="ears-covered-cat.png" class="bg-cat cat-dolma" alt="Dolma Cat">
 
 <div class="terminal">
 
@@ -166,7 +159,9 @@ button:active{
 <div class="cat cat2">🐾</div>
 
 <div class="line glow" style="animation-delay:0.5s;">Initializing birthday protocol...</div>
-<div class="line" style="animation-delay:1.5s;">Loading subject: his name🙄</div>
+
+<div class="line" style="animation-delay:1.5s;">Loading subject: Sevak🙄</div>
+
 <div class="line" style="animation-delay:2.5s;">> shy_level ............ 98%</div>
 <div class="line" style="animation-delay:3.5s;">> politeness ........... dangerously high</div>
 <div class="line" style="animation-delay:4.5s;">> eye_contact.exe ...... failed</div>
@@ -229,20 +224,16 @@ button:active{
     </div>
 
     <button id="nextBtn" onclick="showNextLayer()">NEXT</button>
-    
     <button id="finalBtn" onclick="goNext()" class="hidden">FINAL MESSAGE</button>
 
 </div>
-
 </div>
 
 <script>
 let currentLayer = 1;
 
 function showMessage(){
-    // Show the message container
     document.getElementById("message").classList.remove("hidden");
-    // Hide the 'DO NOT CLICK' button
     document.getElementById("startBtn").classList.add("hidden"); 
 }
 
@@ -250,12 +241,10 @@ function showNextLayer(){
     currentLayer++;
     const nextLayer = document.getElementById("layer" + currentLayer);
 
-    // If the next layer exists, unhide it
     if(nextLayer){
         nextLayer.classList.remove("hidden");
     }
 
-    // If we just showed the 4th layer, hide 'NEXT' and show 'FINAL MESSAGE'
     if(currentLayer === 4){
         document.getElementById("nextBtn").classList.add("hidden");
         document.getElementById("finalBtn").classList.remove("hidden");
@@ -266,6 +255,5 @@ function goNext(){
     window.location.href = "birthday.html";
 }
 </script>
-
 </body>
 </html>
