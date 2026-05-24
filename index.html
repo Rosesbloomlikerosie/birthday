@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Him.exe</title>
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffd6e7,#d9e7ff);
+    /* Fixed: Changed to min-height so tall content isn't cut off at the top */
+    min-height:100vh; 
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x: hidden;
+    font-family:Courier New, monospace;
+}
+
+/* --- NEW: Background Cats Setup --- */
+.bg-cat {
+    position: fixed;
+    width: 150px;
+    opacity: 0; /* Hidden at first */
+    border-radius: 12px;
+    z-index: 0; /* Keeps them behind the terminal */
+}
+
+/* Alias Cat appears at 10s */
+.cat-alias {
+    top: 15%;
+    left: 5%;
+    animation: popIn 1s 10s forwards, floatRotate 6s 10s infinite ease-in-out;
+}
+
+/* Dolma Cat appears at 11s */
+.cat-dolma {
+    bottom: 15%;
+    right: 5%;
+    animation: popIn 1s 11s forwards, floatRotate 6s 11s infinite ease-in-out;
+}
+
+/* Animations for the background cats */
+@keyframes popIn {
+    to { opacity: 0.9; }
+}
+@keyframes floatRotate {
+    0%, 100% { transform: translateY(0px) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+/* --------------------------------- */
+
+/* MOBILE FIX */
+@media (max-width: 768px){
+    body{
+        align-items:flex-start;
+        padding-top:40px;
+    }
+    .terminal{
+        width:92%;
+        padding:18px;
+        border-radius:16px;
+        font-size:14px;
+    }
+    button{
+        width:100%;
+        font-size:14px;
+    }
+    .bg-cat {
+        width: 100px; /* Smaller cats on mobile */
+    }
+}
+
+.terminal{
+    width:700px;
+    max-width:100%;
+    background:rgba(20,20,30,0.92);
+    border-radius:20px;
+    padding:30px;
+    color:#ffffff;
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+    position:relative;
+    animation:float 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-5px);}
+    100%{transform:translateY(0px);}
+}
+
+.line{
+    margin:12px 0;
+    opacity:0;
+    animation:appear 0.8s forwards;
+}
+
+@keyframes appear{
+    to{opacity:1;}
+}
+
+.cat{
+    position:absolute;
+    font-size:28px;
+    animation:spin 8s linear infinite;
+    opacity:0.9;
+}
+
+.cat1{top:-12px; right:18px;}
+.cat2{bottom:-12px; left:18px;}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.glow{
+    color:#ffb6d9;
+    text-shadow:0 0 10px #ff8cc6;
+}
+
+button{
+    margin-top:20px;
+    background:#ffb6d9;
+    border:none;
+    padding:14px 18px;
+    border-radius:12px;
+    font-family:inherit;
+    cursor:pointer;
+    transition:0.25s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.03);
+    background:#ffcce5;
+}
+
+button:active{
+    transform:scale(0.98);
+}
+
+.hidden{
+    display:none !important;
+}
+
+.layer {
+    margin-top: 20px;
+    color:#ffd4ea;
+}
+</style>
+</head>
+
+<body>
+
+<img src="images/confused-cat.png" class="bg-cat cat-alias" alt="Alias Cat">
+<img src="images/ears-covered-cat.png" class="bg-cat cat-dolma" alt="Dolma Cat">
+
+<div class="terminal">
+
+<div class="cat cat1">🐈</div>
+<div class="cat cat2">🐾</div>
+
+<div class="line glow" style="animation-delay:0.5s;">Initializing birthday protocol...</div>
+<div class="line" style="animation-delay:1.5s;">Loading subject: his name🙄</div>
+<div class="line" style="animation-delay:2.5s;">> shy_level ............ 98%</div>
+<div class="line" style="animation-delay:3.5s;">> politeness ........... dangerously high</div>
+<div class="line" style="animation-delay:4.5s;">> eye_contact.exe ...... failed</div>
+<div class="line" style="animation-delay:5.5s;">> ability_to_hurt_me ... impressive honestly</div>
+<div class="line" style="animation-delay:6.5s;">> ability_to_be_loved .. also impressive</div>
+<div class="line glow" style="animation-delay:7.5s;">Scanning memories...</div>
+<div class="line" style="animation-delay:9s;">Found:</div>
+
+<div class="line" style="animation-delay:10s;">
+• survived Alias while my classmate shouted under his ear
+</div>
+
+<div class="line" style="animation-delay:11s;">
+• stayed calm when a kid dropped dolma on him (legend behavior)
+</div>
+
+<div class="line" style="animation-delay:12s;">• patiently existed just to spend time with me</div>
+<div class="line" style="animation-delay:13s;">• accidentally became emotionally important</div>
+<div class="line" style="animation-delay:14s;">Result:</div>
+<div class="line" style="animation-delay:15s;">You were a very nice chapter.</div>
+<div class="line" style="animation-delay:16s;">Even if you were annoying sometimes.</div>
+
+<div class="line" style="animation-delay:17s;">
+    <button id="startBtn" onclick="showMessage()">DO NOT CLICK</button>
+</div>
+
+<div id="message" class="hidden">
+
+    <div id="layer1" class="layer">
+    <br><br>
+    • too respectful for no reason  <br>
+    • wrote poems like it’s normal (it’s not)  <br>
+    • brought flowers like you’re from another century  
+    </div>
+
+    <div id="layer2" class="layer hidden">
+    <br>
+    Memory scan update:
+    <br><br>
+    • late-night thoughts you probably didn’t mean to cause <br> 
+    • moments I tried not to care (failed)  <br>
+    • your silence that somehow said a lot  
+    </div>
+
+    <div id="layer3" class="layer hidden">
+    <br>
+    I should say this properly:
+    <br><br>
+    I’m sorry for being rude sometimes.  <br>
+    And I’m sorry I didn’t accept your flowers the way I should have.  
+    </div>
+    
+    <div id="layer4" class="layer hidden">
+    <br>
+    Final result:
+    <br><br>
+    I didn’t always know how to handle you…  <br>
+    but I did notice you.  <br><br>
+    and I still think meeting you was lucky.
+    </div>
+
+    <button id="nextBtn" onclick="showNextLayer()">NEXT</button>
+    
+    <button id="finalBtn" onclick="goNext()" class="hidden">FINAL MESSAGE</button>
+
+</div>
+
+</div>
+
+<script>
+let currentLayer = 1;
+
+function showMessage(){
+    // Show the message container
+    document.getElementById("message").classList.remove("hidden");
+    // Hide the 'DO NOT CLICK' button
+    document.getElementById("startBtn").classList.add("hidden"); 
+}
+
+function showNextLayer(){
+    currentLayer++;
+    const nextLayer = document.getElementById("layer" + currentLayer);
+
+    // If the next layer exists, unhide it
+    if(nextLayer){
+        nextLayer.classList.remove("hidden");
+    }
+
+    // If we just showed the 4th layer, hide 'NEXT' and show 'FINAL MESSAGE'
+    if(currentLayer === 4){
+        document.getElementById("nextBtn").classList.add("hidden");
+        document.getElementById("finalBtn").classList.remove("hidden");
+    }
+}
+
+function goNext(){
+    window.location.href = "birthday.html";
+}
+</script>
+
+</body>
+</html>
