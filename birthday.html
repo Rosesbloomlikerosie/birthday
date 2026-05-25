@@ -2,27 +2,65 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday</title>
 
 <style>
 body{
     margin:0;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     background:linear-gradient(135deg,#ffe3f1,#e3f0ff);
     font-family:Courier New, monospace;
+    overflow-x: hidden; 
+    padding: 20px;
+    box-sizing: border-box;
 }
+
+.bg-cat {
+    position: fixed;
+    width: 130px;
+    opacity: 0.85; 
+    border-radius: 12px;
+    z-index: 0; 
+}
+
+.cat-left {
+    top: 15%;
+    left: 8%;
+    animation: floatRotate 5s infinite ease-in-out;
+}
+
+.cat-right {
+    bottom: 15%;
+    right: 8%;
+    animation: floatRotate 6s infinite ease-in-out reverse; 
+
+@keyframes floatRotate {
+    0%, 100% { transform: translateY(0px) rotate(-8deg); }
+    50% { transform: translateY(-15px) rotate(8deg); }
+}
+
+@media (max-width: 768px){
+    .bg-cat {
+        width: 90px; 
+    }
+}
+/* --------------------------------- */
 
 .box{
     max-width:600px;
+    width: 100%;
     padding:30px;
     background:rgba(20,20,30,0.9);
     color:white;
     border-radius:20px;
     text-align:center;
     box-shadow:0 0 30px rgba(0,0,0,0.3);
+    z-index: 10; 
+    position: relative;
 }
 
 h1{
@@ -49,6 +87,9 @@ h1{
 
 <body>
 
+<img src="bdaycat2.png" class="bg-cat cat-left" alt="Birthday Cat">
+<img src="bdaycat1.png" class="bg-cat cat-right" alt="Birthday Cat">
+
 <div class="box">
 
 <div class="kitten">🐱✨</div>
@@ -58,7 +99,12 @@ h1{
 <p>
 I hope your day is soft, funny, and a little chaotic (like you).
 </p>
-
+<p>
+and I wish you to achieve all your dreams, because you are truly a wonderful person.
+</p>
+<p>
+I hope there are never any bugs in your code
+</p>
 <p>
 I hope you still laugh the way you did during Alias…
 <br>
@@ -68,9 +114,15 @@ and stay patient even when someone drops dolma on you again.
 <p>
 I hope your new country treats you kindly.
 </p>
+<p>
+I wish that one day you will understand that taking bus number 25 and getting off at Baghramyan to get to the 7th Masiv from the monument was not pointless.
+</p>
+<p>
+I hope your friend who is studying on EPH gets that 19.5 on all of his armenian language tests 
+</p>
 
 <p>
-And I hope you don’t lose the silly, annoying, patient version of you I got to see.
+And I hope you don’t lose the silly, kind, honest and patient version of you I got to see.
 </p>
 
 <div class="small">
@@ -83,4 +135,5 @@ and Im sure this is how you look while coding
 </div>
 
 </body>
+</html>
 </html>
