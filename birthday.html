@@ -2,65 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday</title>
 
 <style>
 body{
     margin:0;
-    min-height:100vh;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     background:linear-gradient(135deg,#ffe3f1,#e3f0ff);
     font-family:Courier New, monospace;
-    overflow-x: hidden; 
-    padding: 20px;
-    box-sizing: border-box;
+    overflow: hidden; /* Added this so floating cats don't create scrollbars */
 }
 
+/* --- Floating Background Cats --- */
 .bg-cat {
-    position: fixed;
+    position: absolute;
     width: 130px;
     opacity: 0.85; 
-    border-radius: 12px;
-    z-index: 0; 
+    z-index: -1; /* This strictly keeps them BEHIND your purple box */
 }
 
-.cat-left {
+/* Placed towards the top/pink areas */
+.cat-1 {
     top: 15%;
-    left: 8%;
+    left: 10%;
     animation: floatRotate 5s infinite ease-in-out;
 }
 
-.cat-right {
-    bottom: 15%;
-    right: 8%;
-    animation: floatRotate 6s infinite ease-in-out reverse; 
+.cat-2 {
+    top: 20%;
+    right: 15%;
+    animation: floatRotate 6s infinite ease-in-out reverse;
+}
 
 @keyframes floatRotate {
     0%, 100% { transform: translateY(0px) rotate(-8deg); }
     50% { transform: translateY(-15px) rotate(8deg); }
 }
-
-@media (max-width: 768px){
-    .bg-cat {
-        width: 90px; 
-    }
-}
-/* --------------------------------- */
+/* -------------------------------- */
 
 .box{
     max-width:600px;
-    width: 100%;
     padding:30px;
     background:rgba(20,20,30,0.9);
     color:white;
     border-radius:20px;
     text-align:center;
     box-shadow:0 0 30px rgba(0,0,0,0.3);
-    z-index: 10; 
-    position: relative;
+    z-index: 10; /* Keeps your purple box safe on top! */
 }
 
 h1{
@@ -87,8 +78,8 @@ h1{
 
 <body>
 
-<img src="bdaycat2.png" class="bg-cat cat-left" alt="Birthday Cat">
-<img src="bdaycat1.png" class="bg-cat cat-right" alt="Birthday Cat">
+<img src="bdaycat1.png" class="bg-cat cat-1" alt="Cat">
+<img src="bdaycat2.png" class="bg-cat cat-2" alt="Cat">
 
 <div class="box">
 
@@ -133,7 +124,6 @@ and Im sure this is how you look while coding
 <br>
 <img src="stressed-cat.gif" style="width:140px;margin:10px 0;border-radius:12px;">
 </div>
-
 </body>
 </html>
 </html>
